@@ -163,6 +163,7 @@ IPython中的I代码交互的interactive
 * 适合开发大型项目
 
   
+##### 恢复 PyCharm 的初始设置
 
 
 
