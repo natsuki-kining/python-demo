@@ -50,3 +50,7 @@ format1 = "字符串"
 format2 = 12341
 
 print("字符串：%s,数字：%d" %(format1,format2))
+
+#输出格式化字符 25.00%
+scale = 0.25
+print("数据比例是：%.2f%%" % (scale * 100) )
