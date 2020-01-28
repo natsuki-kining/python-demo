@@ -19,9 +19,8 @@ def toSwap():
 def toSwap2():
     global a
     global b
-    tuple = (a,b)
-    a = tuple[1]
-    b = tuple[0]
+    a,b = b,a
+    # a,b = (b,a)
 
     print("a:%s\nb:%s" %(a,b))
 
