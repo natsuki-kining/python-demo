@@ -133,7 +133,6 @@ object.name = "name"
 * 继承的语法:
 ```
 class 类名(父类名):
-
     pass
 ```
 
