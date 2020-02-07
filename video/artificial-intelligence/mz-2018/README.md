@@ -10,3 +10,5 @@
 
 # 七 [高级语法](07-advanced-grammar/README.md)
 
+# 二十四 [数据分析](24-data-analysis/README.md)
+
