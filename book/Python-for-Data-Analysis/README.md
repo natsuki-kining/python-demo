@@ -22,3 +22,15 @@
     
     
 # 二、Python语言基础、IPython及Jupyter notebook
+
+### 2.2.4 内省
+在Jupyter notebook中：  
+在一个变量名的前后使用问号（？）可以显示一些关于该对象的概要信息 
+使用？显示文档字符串  
+使用？？显示函数的源代码  
+？ 有一个终极用途，可以像标准Unix或windows命令行一样搜索IPython命名空间。  
+把一些字符串和通配符（*）结合在一起，会显示所有匹配通配符表达式的命名。  
+例：np.*load*?  
+np.\_loader\_  
+np.load  
+np.loads
