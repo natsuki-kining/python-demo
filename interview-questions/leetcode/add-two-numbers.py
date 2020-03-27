@@ -20,7 +20,14 @@ class ListNode:
         self.val = x
         self.next = None
 
-array1 = [2,4,3]
+    def printNode(self):
+        node = self
+        while node != None:
+            print(node.val,end="->")
+            node = node.next
+        print()
+
+array1 = [2,4,3,2,3]
 array2 = [5,6,4]
 
 listNode1 = None
@@ -36,7 +43,8 @@ for n in array2:
     listNode2 = new
 
 
-# 方法一、正常思维
+
+# 方法一、计算每个链表的和，再相加
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         index = 1
@@ -67,14 +75,15 @@ class Solution:
 
 
 s = Solution()
-s.addTwoNumbers(listNode1,listNode2)
-
+v1 = s.addTwoNumbers(listNode1,listNode2)
+v1.printNode()
 
 
 #  方法二，直接节点+节点
 class Solution2:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        value = None
+        head = ListNode(0)
+        h = head
         remainder = 0
         while l1 and l2:
             val = 0
@@ -86,9 +95,8 @@ class Solution2:
             else:
                 remainder = 0
                 val = sum_value
-            new = ListNode(val)
-            new.next = value
-            value = new
+            h.next = ListNode(val)
+            h = h.next
 
             l1 = l1.next
             l2 = l2.next
@@ -101,18 +109,44 @@ class Solution2:
                 l2 = ListNode(0)
 
         if (remainder > 0):
-            new = ListNode(remainder)
-            new.next = value
-            value = new
+            h.next = ListNode(remainder)
+            h = h.next
 
-        # 反转
-        node = ListNode(0)
-        while value:
-            temp = value.next
-            value.next = node.next
-            node.next = value
-            value = temp
-        return node.next
+        return head.next
 
 s2 = Solution2()
-s2.addTwoNumbers(listNode1,listNode2)
+v2 = s2.addTwoNumbers(listNode1,listNode2)
+
+
+v2.printNode()
+
+
+
+#  方法三 基于二上优化
+class Solution3:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        head = ListNode(0)
+        h = head
+        remainder = 0
+        while l1 or l2:
+
+            sum_value = (l1.val if l1 else 0) + (l2.val if l2 else 0) + remainder
+
+            remainder = sum_value // 10
+            sum_value = sum_value % 10
+
+            h.next = ListNode(sum_value)
+            h = h.next
+
+            l1 = None if l1 else l1.next
+            l2 = None if l2 else l2.next
+
+        if remainder > 0:
+            h.next = ListNode(remainder)
+            h = h.next
+
+        return head.next
+
+s3 = Solution2()
+v3 = s3.addTwoNumbers(listNode1,listNode2)
+v3.printNode()
