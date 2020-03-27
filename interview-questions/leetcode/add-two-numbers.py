@@ -138,8 +138,8 @@ class Solution3:
             h.next = ListNode(sum_value)
             h = h.next
 
-            l1 = None if l1 else l1.next
-            l2 = None if l2 else l2.next
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
 
         if remainder > 0:
             h.next = ListNode(remainder)
@@ -147,6 +147,6 @@ class Solution3:
 
         return head.next
 
-s3 = Solution2()
+s3 = Solution3()
 v3 = s3.addTwoNumbers(listNode1,listNode2)
 v3.printNode()
