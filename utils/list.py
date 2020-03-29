@@ -6,7 +6,10 @@ class ListNode:
     def printNode(self):
         node = self
         while node != None:
-            print(node.val,end="->")
+            sign = ""
+            if node.next:
+                sign = "->"
+            print(node.val,end=sign)
             node = node.next
         print()
 

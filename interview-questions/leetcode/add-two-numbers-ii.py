@@ -19,12 +19,8 @@ https://leetcode-cn.com/problems/add-two-numbers-ii/
 
 """
 
-
-
-
 array1 = [7,2,4,3]
 array2 = [5,6,4]
-
 
 from utils.list import *
 linkedList = LinkedList()
@@ -32,42 +28,6 @@ listNode1 = linkedList.initLinkedList(array1)
 listNode2 = linkedList.initLinkedList(array2)
 
 class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        a1 = []
-        a2 = []
-        index = 0
-        while l1 or l2:
-            a1.insert(0, l1.val if l1 else 0)
-            a2.insert(0, l2.val if l2 else 0)
-            l1 = l1.next if l1 else None
-            l2 = l2.next if l2 else None
-
-            index += 1
-
-        index = len(a1) - 1
-
-        head = ListNode(0)
-        h = head
-        mo = 0
-        while index >= 0:
-            a_sum = a1[index] + a2[index] + mo
-            mo = 0
-            if a_sum >= 10:
-                mo = a_sum % 10 + 1
-                a_sum -= 10
-
-            new = ListNode(a_sum)
-            h.next = new
-            h = new
-            index -= 1
-        return head.next
-
-s = Solution()
-v = s.addTwoNumbers(listNode1,listNode2)
-v.printNode()
-
-
-class Solution2:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         a1 = []
         a2 = []
@@ -107,6 +67,6 @@ class Solution2:
             value = new
         return value
 
-s2 = Solution2()
-v2 = s2.addTwoNumbers(listNode1,listNode2)
-v2.printNode()
+s = Solution()
+v = s.addTwoNumbers(listNode1,listNode2)
+v.printNode()
