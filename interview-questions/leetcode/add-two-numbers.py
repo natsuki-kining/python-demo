@@ -18,9 +18,8 @@ array1 = [2,4,3,2,3]
 array2 = [5,6,4]
 
 from utils.list import *
-linkedList = LinkedList()
-listNode1 = linkedList.initLinkedList(array1)
-listNode2 = linkedList.initLinkedList(array2)
+listNode1 = LinkedList.init(array1)
+listNode2 = LinkedList.init(array2)
 
 
 # 方法一、计算每个链表的和，再相加

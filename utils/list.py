@@ -15,11 +15,12 @@ class ListNode:
 
 
 class LinkedList:
-    def initLinkedList(self,array):
-        listNode = ListNode(0)
-        l1 = listNode
+    @staticmethod
+    def init(array):
+        list_node = ListNode(0)
+        l1 = list_node
         for n in array:
             new = ListNode(n)
             l1.next = new
             l1 = new
-        return listNode.next
+        return list_node.next
