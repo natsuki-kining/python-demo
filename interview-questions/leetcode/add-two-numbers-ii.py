@@ -25,30 +25,11 @@ https://leetcode-cn.com/problems/add-two-numbers-ii/
 array1 = [7,2,4,3]
 array2 = [5,6,4]
 
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
 
-    def printNode(self):
-        node = self
-        while node != None:
-            print(node.val,end="->")
-            node = node.next
-        print()
-
-
-listNode1 = None
-for n in array1:
-    new = ListNode(n)
-    new.next = listNode1
-    listNode1 = new
-
-listNode2 = None
-for n in array2:
-    new = ListNode(n)
-    new.next = listNode2
-    listNode2 = new
+from utils.list import *
+linkedList = LinkedList()
+listNode1 = linkedList.initLinkedList(array1)
+listNode2 = linkedList.initLinkedList(array2)
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
@@ -62,8 +43,7 @@ class Solution:
             l2 = l2.next if l2 else None
 
             index += 1
-        print(a1)
-        print(a2)
+
         index = len(a1) - 1
 
         head = ListNode(0)
@@ -130,6 +110,3 @@ class Solution2:
 s2 = Solution2()
 v2 = s2.addTwoNumbers(listNode1,listNode2)
 v2.printNode()
-
-
-# emmmmm 链表的初始化错了，导致pycharm跟LeetCode执行的结果不一样、pycharm第一个正确，LeetCode第二个正确
