@@ -14,34 +14,12 @@
 https://leetcode-cn.com/problems/add-two-numbers/
 """
 
-
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-    def printNode(self):
-        node = self
-        while node != None:
-            print(node.val,end="->")
-            node = node.next
-        print()
-
 array1 = [2,4,3,2,3]
 array2 = [5,6,4]
 
-listNode1 = None
-for n in array1:
-    new = ListNode(n)
-    new.next = listNode1
-    listNode1 = new
-
-listNode2 = None
-for n in array2:
-    new = ListNode(n)
-    new.next = listNode2
-    listNode2 = new
-
+from utils.list import *
+listNode1 = LinkedList.init(array1)
+listNode2 = LinkedList.init(array2)
 
 
 # 方法一、计算每个链表的和，再相加
