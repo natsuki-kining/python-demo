@@ -34,9 +34,18 @@ s1 = Solution1()
 print(s1.multiply(num1,num2))
 
 
+# 突然想起 eval ，最简单的应该是这个
+class Solution2:
+    def multiply(self, num1: str, num2: str) -> str:
+        return str(eval(num1 + " * " + num2))
+
+s2 = Solution2()
+print(s2.multiply(num1,num2))
+
+
 
 # 遍历字符串，获取一个个字符串，转成ASCII码，再转成数字计算，字符转ASCII ord() ,ASCII转字符chr()。字符数字ASCII值比数字大48
-class Solution2:
+class Solution3:
     def multiply(self, num1: str, num2: str) -> str:
         l1 = len(num1)-1
         l2 = len(num2)-1
@@ -54,6 +63,6 @@ class Solution2:
             num *= 10
         return str(n1 * n2)
 
-s2 = Solution2()
-print(s2.multiply(num1,num2))
+s3 = Solution3()
+print(s3.multiply(num1,num2))
 
